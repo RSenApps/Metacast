@@ -1,0 +1,54 @@
+Initialize engine version: 4.6.1f1 (d1db7a1b5196)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics Family (ID=0xa16)
+    Vendor:   Intel
+    VRAM:     896 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Ryan\Documents\GitHub\TreeHacks\Unity\metacast_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Ryan\Documents\GitHub\TreeHacks\Unity\metacast_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Ryan\Documents\GitHub\TreeHacks\Unity\metacast_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Ryan\Documents\GitHub\TreeHacks\Unity\metacast_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Ryan\Documents\GitHub\TreeHacks\Unity\metacast_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Ryan\Documents\GitHub\TreeHacks\Unity\metacast_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Ryan\Documents\GitHub\TreeHacks\Unity\metacast_Data\Managed\Vectrosity.dll (this message is harmless)
+Loading C:\Users\Ryan\Documents\GitHub\TreeHacks\Unity\metacast_Data\Managed\Vectrosity.dll into Unity Child Domain
+Platform assembly: C:\Users\Ryan\Documents\GitHub\TreeHacks\Unity\metacast_Data\Managed\Meta.dll (this message is harmless)
+Loading C:\Users\Ryan\Documents\GitHub\TreeHacks\Unity\metacast_Data\Managed\Meta.dll into Unity Child Domain
+Platform assembly: C:\Users\Ryan\Documents\GitHub\TreeHacks\Unity\metacast_Data\Managed\Ionic.Zlib.dll (this message is harmless)
+Loading C:\Users\Ryan\Documents\GitHub\TreeHacks\Unity\metacast_Data\Managed\Ionic.Zlib.dll into Unity Child Domain
+- Completed reload, in  0.090 seconds
+desktop: 1366x768 59Hz; virtual: 1366x768 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: C:\Users\Ryan\Documents\GitHub\TreeHacks\Unity\metacast_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Ryan\Documents\GitHub\TreeHacks\Unity\metacast_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\Users\Ryan\Documents\GitHub\TreeHacks\Unity\metacast_Data\Managed\System.Configuration.dll (this message is harmless)
+Platform assembly: C:\Users\Ryan\Documents\GitHub\TreeHacks\Unity\metacast_Data\Managed\System.Xml.dll (this message is harmless)
+Platform assembly: C:\Users\Ryan\Documents\GitHub\TreeHacks\Unity\metacast_Data\Managed\Mono.Security.dll (this message is harmless)
+You are trying to load data from a www stream which had the following error when downloading.
+SSL read: error:00000000:lib(0):func(0):reason(0), errno 10054
+ 
+(Filename:  Line: 1075)
+
+You are trying to load data from a www stream which had the following error when downloading.
+SSL read: error:00000000:lib(0):func(0):reason(0), errno 10054
+ 
+(Filename:  Line: 1075)
+
+IndexOutOfRangeException: Array index is out of range.
+  at UpdateScreenshot+<Start>c__Iterator6.MoveNext () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+You are trying to load data from a www stream which had the following error when downloading.
+Could not resolve host: metacast.firebaseio.com; Host not found
+ 
+(Filename:  Line: 1075)
+
+You are trying to load data from a www stream which had the following error when downloading.
+Could not resolve host: metacast.firebaseio.com; Host not found
+ 
+(Filename:  Line: 1075)
+
