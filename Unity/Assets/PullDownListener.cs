@@ -9,6 +9,7 @@ using Meta;
 public class PullDownListener : MetaBehaviour {
 	public int iconIndex;
 	public IconUpdateService iconUpdater;
+	static bool inProgress = false;
 	// Use this for initialization
 	void Start () {
 	}
@@ -19,40 +20,45 @@ public class PullDownListener : MetaBehaviour {
 	}
 
 
-	IEnumerator OnRelease()
+	void OnRelease()
 	{
 		Vector3 pos = transform.position;
-		if (pos.y < .1) {
-			pos.y = .15f;
-			transform.position = pos;
-
-			WWW www = new WWW ("https://metacast.firebaseio.com/pkg" + iconIndex + ".json");
-			yield return www;
-			string pkg = www.text;
-			
-			
-			ServicePointManager.ServerCertificateValidationCallback = Validator;
-			
-			// Create a request using a URL that can receive a post. 
-			var request = (HttpWebRequest)WebRequest.Create("https://metacast.firebaseio.com/app.json");
-			
-			var data = Encoding.ASCII.GetBytes(pkg);
-			request.UserAgent = "test.net";
-			request.Accept = "application/json";
-			request.Method = "PUT";
-			request.ContentType = "raw";
-			request.ContentLength = data.Length;
-			
-			using (var stream = request.GetRequestStream())
-			{
-				stream.Write(data, 0, data.Length);
-			}
-			var response = (HttpWebResponse)request.GetResponse();
-			pos.y = .15f;
-			transform.position = pos;
-			StartCoroutine(iconUpdater.updateIcons());
-
+		if (pos.y < .1 && !inProgress) {
+			StartCoroutine(HandlePullDown(pos));
 		}
+	}
+	IEnumerator HandlePullDown(Vector3 pos)
+	{
+		inProgress = true;
+		pos.y = .15f;
+		transform.position = pos;
+		
+		WWW www = new WWW ("https://metacast.firebaseio.com/pkg" + iconIndex + ".json");
+		yield return www;
+		string pkg = www.text;
+		
+		
+		ServicePointManager.ServerCertificateValidationCallback = Validator;
+		
+		// Create a request using a URL that can receive a post. 
+		var request = (HttpWebRequest)WebRequest.Create("https://metacast.firebaseio.com/app.json");
+		
+		var data = Encoding.ASCII.GetBytes(pkg);
+		request.UserAgent = "test.net";
+		request.Accept = "application/json";
+		request.Method = "PUT";
+		request.ContentType = "raw";
+		request.ContentLength = data.Length;
+		
+		using (var stream = request.GetRequestStream())
+		{
+			stream.Write(data, 0, data.Length);
+		}
+		var response = (HttpWebResponse)request.GetResponse();
+		pos.y = .15f;
+		transform.position = pos;
+		StartCoroutine(iconUpdater.updateIcons());
+		inProgress = false;
 	}
 	public static bool Validator (object sender, X509Certificate certificate, X509Chain chain,
 	                              SslPolicyErrors sslPolicyErrors)

@@ -8,17 +8,25 @@ public class RayCastHit : MonoBehaviour {
 	public TapHandler tapHandler;
 	public GameObject display;
 	private Thalmic.Myo.Pose _lastPose = Pose.Unknown;
+	static float timethreshold = .5f;
+	float lastTime = 0f;
 	// Use this for initialization
 	void Start () {
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		myo.Unlock (UnlockType.Hold);
-		if (myo.pose != _lastPose) {
-			_lastPose = myo.pose;
 
-			if (myo.pose == Pose.Fist) {
+			myo.Unlock (UnlockType.Hold);
+
+		
+		if (myo.pose != _lastPose) {
+
+			if (myo.pose == Pose.Fist && Time.time - lastTime > timethreshold) {
+				lastTime = Time.time;
+				_lastPose = myo.pose;
+
 				UnityEngine.Vector3 point = findCollisionPosition();
 				if (point != UnityEngine.Vector3.zero)
 				{

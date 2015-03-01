@@ -14,7 +14,6 @@ public class TapHandler : MonoBehaviour {
 
 	public void handleTap(float x, float y)
 	{
-		myo.Vibrate (Thalmic.Myo.VibrationType.Short);
 		var renderer = display.renderer;
 		float width = renderer.bounds.size.x;
 		float height = renderer.bounds.size.y;
@@ -24,6 +23,11 @@ public class TapHandler : MonoBehaviour {
 		float relativey = Mathf.Abs(y - (dispy + height/2));
 		float percentX = relativex / width;
 		float percentY = relativey / height;
+		if (percentX > 1 || percentY > 1 || percentX < 0 || percentY < 0) {
+			return;
+		}
+		myo.Vibrate (Thalmic.Myo.VibrationType.Short);
+
 		//WWWForm form = new WWWForm();
 		// Upload to a cgi script
 		string postData = "\"" + percentX + "," + percentY + "\"";

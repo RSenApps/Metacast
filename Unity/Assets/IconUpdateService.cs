@@ -19,8 +19,10 @@ public class IconUpdateService : MonoBehaviour {
 	}
 	public IEnumerator updateIcons()
 	{
+
 		//hilarious
-		yield return new WaitForSeconds (1);
+		yield return new WaitForSeconds (0);
+
 		StartCoroutine(icon0.updateTexture());
 		StartCoroutine(icon1.updateTexture());
 		StartCoroutine(icon2.updateTexture());
@@ -34,6 +36,7 @@ public class IconUpdateService : MonoBehaviour {
 		StartCoroutine(icon3.updateTexture());
 		StartCoroutine(icon4.updateTexture());
 
-		icon4.updateTexture ();
+		//icon4.updateTexture ();
+
 	}
 }
